@@ -35,5 +35,10 @@ public class AxeEffects extends JavaPlugin implements Listener {
         }
     }
 
+    @Override
+    public void onDisable() {
+        Bukkit.getLogger().info("AxeEffects has been disabled!");
+    }
+
 
 }
