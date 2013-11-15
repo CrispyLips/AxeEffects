@@ -3,6 +3,8 @@ package info.crispylipz.axeeffects;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
@@ -20,8 +22,15 @@ public class AxeEffects extends JavaPlugin implements Listener {
         Bukkit.getLogger().info("AxeEffects has been enabled!");
     }
 
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if(cmd.getName().equalsIgnoreCase("AxeEffects"));
+        sender.sendMessage("You have enabled AxeEffects");
+        return true;
+    }
+
     @EventHandler
-    public void onHit(EntityDamageByEntityEvent event) {
+    public void onEntityHit(EntityDamageByEntityEvent event) {
         final Entity target = event.getEntity();
         final Entity damager = event.getDamager();
 
